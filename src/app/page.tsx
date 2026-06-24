@@ -1,13 +1,29 @@
 import Image from "next/image";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
+import { NavigationSidebar } from "@/components/NavigationSidebar";
 import { Music, MapPin, Users, CalendarHeart } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-between pb-20">
+    <main className="min-h-screen flex flex-col items-center justify-between pb-20 relative">
+      <NavigationSidebar />
+
+      {/* Top Banner Image */}
+      <div className="w-full h-[40vh] sm:h-[50vh] lg:h-[65vh] min-h-[350px] max-h-[800px] relative z-0">
+        <Image
+          src="/media/20231008_202715.jpg"
+          alt="Gaitas Anauco Evento"
+          fill
+          priority
+          className="object-cover object-top"
+        />
+        {/* Este degradado funde la imagen con el color azul oscuro exacto del fondo de la web */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-[#0A0A2A]/60 to-[#0A0A2A]" />
+      </div>
+
       {/* Hero Section */}
-      <section className="w-full flex flex-col items-center justify-center pt-24 pb-16 px-4 text-center relative overflow-hidden">
+      <section className="w-full flex flex-col items-center justify-center pt-0 pb-16 px-4 text-center relative overflow-hidden z-10 -mt-20 sm:-mt-32">
         {/* Decorative background glows */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gaitas-orange/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gaitas-cyan/10 rounded-full blur-[100px] pointer-events-none" />
