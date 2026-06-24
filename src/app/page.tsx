@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { RegistrationForm } from "@/components/RegistrationForm";
+import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { Music, MapPin, Users, CalendarHeart } from "lucide-react";
 
 export default function Home() {
@@ -72,6 +73,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PhotoCarousel />
 
       {/* Registro */}
       <section id="registro" className="w-full max-w-md mx-auto px-4 py-20">
