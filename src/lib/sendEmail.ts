@@ -22,6 +22,9 @@ export async function sendRegistrationNotification({
   const emailTo = process.env.EMAIL_TO || "info@gaitasanauco.com";
   const emailFrom = process.env.EMAIL_FROM || '"Gaitas Anauco" <info@gaitasanauco.com>';
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gaitasanauco.com";
+  const adminUrl = `${siteUrl}/admin/dashboard`;
+
   // Si no hay configuración SMTP en .env.local, registramos en consola (modo de prueba)
   if (!smtpHost || !smtpUser || !smtpPass) {
     console.log(`[Simulación Email] Nuevo registro para ${emailTo}:`);
@@ -79,8 +82,9 @@ export async function sendRegistrationNotification({
               <td style="padding: 10px; color: #111111;">${fecha}</td>
             </tr>
           </table>
-          <div style="margin-top: 24px; padding: 12px; background-color: #f9f9f9; border-left: 4px solid #FF7F50; font-size: 13px; color: #666666;">
-            Puedes gestionar todas las solicitudes desde el Panel de Administración: <a href="http://localhost:3001/admin" style="color: #FF7F50;">Panel /admin</a>
+          <div style="margin-top: 24px; padding: 16px; background-color: #f9f9f9; border-left: 4px solid #FF7F50; border-radius: 4px; font-size: 14px; color: #444444;">
+            <p style="margin: 0 0 10px 0;">Puedes consultar y gestionar todas las solicitudes desde el panel:</p>
+            <a href="${adminUrl}" style="display: inline-block; padding: 10px 20px; background-color: #FF7F50; color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 6px;">Ir al Panel de Administración</a>
           </div>
         </div>
         <div style="background-color: #f4f4f4; padding: 12px; text-align: center; font-size: 12px; color: #888888;">
