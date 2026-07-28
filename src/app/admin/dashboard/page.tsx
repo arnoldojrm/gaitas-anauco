@@ -50,17 +50,12 @@ export default async function DashboardPage() {
             <h3 className="text-gray-400 font-medium mb-2">Total Registros</h3>
             <p className="text-4xl font-bold text-white">{registros?.length || 0}</p>
           </div>
-          {/* Add more stats if needed */}
         </div>
 
         {/* Table Area */}
         <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
           <div className="p-6 border-b border-white/10 flex justify-between items-center">
             <h2 className="text-xl font-bold text-white">Lista de Registrados</h2>
-            <button className="flex items-center gap-2 px-4 py-2 bg-gaitas-cyan text-gaitas-blue font-semibold rounded-lg hover:bg-gaitas-cyan/90 transition-all text-sm">
-              <Download className="w-4 h-4" />
-              Exportar CSV
-            </button>
           </div>
           
           <div className="overflow-x-auto">
@@ -70,6 +65,7 @@ export default async function DashboardPage() {
                   <th className="px-6 py-4 font-medium">Nombre</th>
                   <th className="px-6 py-4 font-medium">Email</th>
                   <th className="px-6 py-4 font-medium">Teléfono</th>
+                  <th className="px-6 py-4 font-medium">¿En qué te podemos ayudar?</th>
                   <th className="px-6 py-4 font-medium">Fecha</th>
                 </tr>
               </thead>
@@ -81,12 +77,15 @@ export default async function DashboardPage() {
                     </td>
                     <td className="px-6 py-4">{registro.email}</td>
                     <td className="px-6 py-4">{registro.telefono || "-"}</td>
+                    <td className="px-6 py-4 max-w-xs truncate" title={registro.comentario || ""}>
+                      {registro.comentario || "-"}
+                    </td>
                     <td className="px-6 py-4">{new Date(registro.created_at).toLocaleDateString()}</td>
                   </tr>
                 ))}
                 {(!registros || registros.length === 0) && (
                   <tr>
-                    <td colSpan={4} className="px-6 py-12 text-center text-gray-500">
+                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
                       No hay registros todavía.
                     </td>
                   </tr>

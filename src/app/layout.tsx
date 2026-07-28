@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "@/components/Footer";
+import { CookieBanner } from "@/components/CookieBanner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,11 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning className="min-h-full flex flex-col">{children}</body>
+      <body suppressHydrationWarning className="min-h-full flex flex-col justify-between bg-[#0A0A2A] text-white">
+        <div className="flex-grow">{children}</div>
+        <Footer />
+        <CookieBanner />
+      </body>
     </html>
   );
 }

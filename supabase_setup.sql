@@ -8,14 +8,18 @@ create table if not exists public.registros (
     nombre text not null,
     apellidos text not null,
     email text not null,
-    telefono text
+    telefono text not null,
+    comentario text
 );
+
+-- Si la tabla ya existía sin la columna 'comentario', agregarla:
+alter table public.registros add column if not exists comentario text;
+alter table public.registros alter column telefono set not null;
 
 -- Habilitar RLS (Row Level Security) para la tabla
 alter table public.registros enable row level security;
 
 -- Política 1: Permitir a cualquier persona (incluso no autenticados) insertar registros
--- Esto es esencial para el formulario público en la Landing Page
 create policy "Permitir inserciones públicas"
     on public.registros
     for insert

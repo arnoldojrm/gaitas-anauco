@@ -29,7 +29,7 @@ export function PhotoCarousel() {
   }, [isInView, controls]);
 
   return (
-    <section className="w-full py-24 overflow-hidden relative" ref={containerRef}>
+    <section id="momentos" className="w-full py-24 overflow-hidden relative scroll-mt-24" ref={containerRef}>
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] bg-gaitas-purple/30 rounded-full blur-[120px] pointer-events-none" />
 

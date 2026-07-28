@@ -27,29 +27,38 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  // refreshing the auth token
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  // Si intentamos ir a /admin/dashboard y no hay usuario, redirigir a /admin/login
-  if (
-    !user &&
-    request.nextUrl.pathname.startsWith("/admin/dashboard")
-  ) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/admin/login";
-    return NextResponse.redirect(url);
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+  if (supabaseUrl.includes("placeholder")) {
+    return supabaseResponse;
   }
 
-  // Si hay usuario y estamos en /admin/login, redirigir a /admin/dashboard
-  if (
-    user &&
-    request.nextUrl.pathname.startsWith("/admin/login")
-  ) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/admin/dashboard";
-    return NextResponse.redirect(url);
+  // refreshing the auth token
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    // Si intentamos ir a /admin/dashboard y no hay usuario, redirigir a /admin/login
+    if (
+      !user &&
+      request.nextUrl.pathname.startsWith("/admin/dashboard")
+    ) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/admin/login";
+      return NextResponse.redirect(url);
+    }
+
+    // Si hay usuario y estamos en /admin/login, redirigir a /admin/dashboard
+    if (
+      user &&
+      request.nextUrl.pathname.startsWith("/admin/login")
+    ) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/admin/dashboard";
+      return NextResponse.redirect(url);
+    }
+  } catch {
+    // Ignore auth errors in placeholder mode
   }
 
   return supabaseResponse;

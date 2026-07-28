@@ -1,49 +1,66 @@
-# Plan de Desarrollo para el Sitio Web de "Gaitas Anauco"
+# Plan de Desarrollo y Arquitectura para "Gaitas Anauco"
 
 ## 1. Visión y Objetivos
 * **Nombre:** Gaitas Anauco.
 * **Identidad:** Grupo de venezolanos residentes en Barcelona, España, dedicados a mantener viva la cultura de la Gaita Zuliana.
 * **Objetivos del Sitio:**
     * Transmisión de alegría, modernidad y la "calidez caribeña".
-    * Alta velocidad de carga (Pila JAMstack).
-    * Captación de leads (formulario público).
+    * Alta velocidad de carga (Pila JAMstack / Next.js App Router).
+    * Captación de leads con confirmación explícita de privacidad (formulario público).
+    * Notificación automática por correo electrónico a `info@gaitasanauco.com` tras cada registro.
     * Panel de administración para gestionar registros (CRUD).
-    * Uso gratuito y comercial (Supabase Free Tier).
-    * Seguridad estricta.
+    * Cumplimiento estricto con la Ley de Protección de Datos (RGPD / LOPDGDD) y LSSI-CE en España.
 
 ## 2. Estructura de Archivos y Recursos
-* **Directorio de Trabajo:** `Website Anauco/`
-* **Ruta de Recursos (Assets):** El logotipo principal se encuentra en el directorio `Logos/` (específicamente `Logos/gaitasnauco nuevo png.jpg`). 
-* *Nota para Antigravity / Next.js:* Durante el andamiaje del proyecto, el directorio `Logos/` deberá ser mapeado o trasladado dentro de la carpeta `public/` (ej. `public/Logos/`) para que el framework pueda servir la imagen estática correctamente.
+* **Directorio de Trabajo:** `GaitasAnauco/`
+* **Logotipos y Recursos:** Mapeados en `public/logo.png` y `public/media/`.
 
 ## 3. Estética y Diseño
-* **Logo Principal:** Uso exclusivo de la imagen proporcionada en la carpeta `Logos`.
-* **Fondo:** Un degradado radial o lineal suave que vaya de un **azul cian profundo** a un **morado berenjena oscuro**. Este fondo oscuro y frío será el lienzo que haga resaltar los colores cálidos del logo.
-* **Colores de Acento:** Tomar los tonos vibrantes del logo (naranja, amarillo y rojo) para botones, iconos, y estados de *hover*.
-* **Tipografía:** Sans-serif limpia y moderna para el cuerpo; una fuente de acento ligeramente más orgánica o lúdica para los subtítulos.
-* **Vistosidad:** Uso de animaciones sutiles en la carga (fades) y efectos de *glow* (resplandor) en elementos de acento cálidos contra el fondo oscuro.
+* **Logo Principal:** Renderizado destacado en la Hero Section.
+* **Fondo:** Degradado oscuro de cian profundo a morado berenjena.
+* **Colores de Acento:** Tonos vibrantes del logo (naranja `#FF7F50`, amarillo y rojo).
+* **Tipografía:** Sans-serif moderna (Geist).
+* **Efectos:** Animaciones sutiles de entrada, degradados y resplandor (*glow*).
 
 ## 4. Pila Tecnológica
-* **Framework:** Next.js (con directorio `/app`).
+* **Framework:** Next.js (App Router).
 * **Diseño:** Tailwind CSS.
-* **Base de Datos y Backend-as-a-Service:** Supabase (Capa gratuita).
+* **Base de Datos & Auth:** Supabase (Capa gratuita).
+* **Notificaciones por Email:** Nodemailer / SMTP.
 * **Seguridad y Validación:**
     * Validación de Formularios: React Hook Form + Zod.
-    * Base de Datos: Políticas de Row Level Security (RLS).
+    * Base de Datos: Políticas de Row Level Security (RLS) en Supabase.
 * **Iconografía:** Lucide React.
+* **Infraestructura de Despliegue:** Servidor Ubuntu en Oracle Cloud Infrastructure (OCI) + PM2 + Nginx.
 
 ## 5. Estructura del Sitio Web
-### 5.1. Zona Pública (Single Page Application)
-* **Hero Section:** Fondo de degradado azul-morado. Logo referenciado desde `public/Logos/` renderizado grande y centrado. Botón de llamado a la acción "Regístrate para más info" en color naranja/rojo vibrante.
-* **Sobre Nosotros:** Texto sobre la historia del grupo.
-* **Actividades:** Cuadrícula de tarjetas modernas para eventos.
-* **Registro:** Formulario simple, elegante y seguro.
+### 5.1. Zona Pública
+* **Hero Section:** Fondo degradado, logo en alta resolución y llamada a la acción.
+* **Sobre Nosotros:** Historia de la agrupación en Barcelona.
+* **Actividades / Galería:** Carrusel interactivo y tarjetas de próximos eventos.
+* **Formulario de Registro:** Formulario seguro con casilla obligatoria de aceptación de Política de Privacidad.
+* **Pie de Página (Footer):** Enlaces directos a las páginas legales.
+* **Banner de Cookies:** Consentimiento interactivo guardado en `localStorage`.
 
-### 5.2. Zona Privada (Dashboard de Administración `/admin`)
-* **Autenticación:** Página de login (`/admin/login`) integrada con Supabase Auth.
-* **Panel de Gestión (`/admin/dashboard`):** Tabla de datos con búsqueda en tiempo real, filtros, paginación y funciones CRUD (Ver, Editar, Eliminar) exclusivas para el administrador.
+### 5.2. Páginas Legales
+* **Aviso Legal (`/aviso-legal`):** LSSI-CE Ley 34/2002.
+* **Política de Privacidad (`/politica-de-privacidad`):** RGPD (UE 2016/679) y LOPDGDD 3/2018.
+* **Política de Cookies (`/politica-de-cookies`):** Gestión transparente de cookies.
 
-## 6. Requisitos de Seguridad (Detallado)
-* **Sanitización:** Todos los campos del formulario público sanitizados y validados con Zod antes de su envío.
-* **RLS de Supabase:** La base de datos debe tener políticas que permitan `INSERT` a usuarios anónimos pero restrinjan estrictamente `SELECT`, `UPDATE` y `DELETE` al rol `authenticated`.
-* **Variables de Entorno:** Archivo `.env.local` configurado para ocultar las llaves de Supabase.
+### 5.3. Zona Privada (`/admin`)
+* **Autenticación (`/admin/login`):** Integrada con Supabase Auth.
+* **Panel de Gestión (`/admin/dashboard`):** Tabla de datos interactiva para consultar y administrar registros.
+
+## 6. Configuración de Entorno (.env.local)
+```env
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+NEXT_PUBLIC_CONTACT_EMAIL=info@gaitasanauco.com
+
+SMTP_HOST=mail.gaitasanauco.com
+SMTP_PORT=465
+SMTP_USER=info@gaitasanauco.com
+SMTP_PASS=...
+EMAIL_TO=info@gaitasanauco.com
+EMAIL_FROM="Gaitas Anauco" <info@gaitasanauco.com>
+```
