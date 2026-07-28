@@ -2,10 +2,60 @@ import { createClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 import { sendRegistrationNotification } from "@/lib/sendEmail";
 
+// Sanitización básica de strings contra XSS e inyecciones de script
+function sanitizeInput(str: string): string {
+  if (typeof str !== "string") return "";
+  return str.replace(/<[^>]*>?/gm, "").trim();
+}
+
+// In-Memory Rate Limiting (Máximo 5 envíos por IP cada 10 minutos)
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutos
+const MAX_REQUESTS_PER_WINDOW = 5;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record) {
+    rateLimitMap.set(ip, { count: 1, lastReset: now });
+    return false;
+  }
+
+  if (now - record.lastReset > RATE_LIMIT_WINDOW_MS) {
+    rateLimitMap.set(ip, { count: 1, lastReset: now });
+    return false;
+  }
+
+  if (record.count >= MAX_REQUESTS_PER_WINDOW) {
+    return true;
+  }
+
+  record.count += 1;
+  return false;
+}
+
 export async function POST(request: Request) {
   try {
+    // Obtener IP del cliente para Rate Limiting
+    const clientIp = request.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1";
+
+    if (isRateLimited(clientIp)) {
+      return NextResponse.json(
+        { error: "Has alcanzado el límite de intentos. Por favor espera unos minutos." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
-    const { nombre, apellidos, email, telefono, comentario } = body;
+    let { nombre, apellidos, email, telefono, comentario } = body;
+
+    // Sanitización de entradas contra XSS
+    nombre = sanitizeInput(nombre);
+    apellidos = sanitizeInput(apellidos);
+    email = sanitizeInput(email).toLowerCase();
+    telefono = sanitizeInput(telefono);
+    comentario = comentario ? sanitizeInput(comentario).slice(0, 512) : "";
 
     // Los campos nombre, apellidos, email y teléfono DEBEN estar completados
     if (!nombre || !apellidos || !email || !telefono) {
