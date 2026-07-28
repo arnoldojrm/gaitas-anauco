@@ -31,7 +31,7 @@
     * Validación de Formularios: React Hook Form + Zod.
     * Base de Datos: Políticas de Row Level Security (RLS) en Supabase.
 * **Iconografía:** Lucide React.
-* **Infraestructura de Despliegue:** Servidor Ubuntu en Oracle Cloud Infrastructure (OCI) + PM2 + Nginx.
+* **Infraestructura de Despliegue:** Servidor Ubuntu en Oracle Cloud Infrastructure (OCI) (Directorio: `web-gaitas`) + PM2 + Nginx.
 
 ## 5. Estructura del Sitio Web
 ### 5.1. Zona Pública

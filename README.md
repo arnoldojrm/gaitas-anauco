@@ -69,9 +69,9 @@ EMAIL_FROM="Gaitas Anauco" <info@gaitasanauco.com>
 
 ## 📦 Despliegue en Servidor Ubuntu (Oracle Cloud)
 
-1. **Actualizar y compilar en el servidor:**
+1. **Actualizar y compilar en el servidor (`web-gaitas`):**
    ```bash
-   cd gaitas-anauco
+   cd web-gaitas
    git pull origin main
    npm install
    npm run build
@@ -79,7 +79,7 @@ EMAIL_FROM="Gaitas Anauco" <info@gaitasanauco.com>
 
 2. **Gestión del servicio con PM2:**
    ```bash
-   pm2 restart gaitas-anauco || pm2 start npm --name "gaitas-anauco" -- start
+   pm2 restart web-gaitas || pm2 start npm --name "web-gaitas" -- start
    ```
 
 3. **Proxy inverso Nginx:**
