@@ -16,7 +16,7 @@ Sitio web oficial para **Gaitas Anauco**, grupo musical de venezolanos residente
 
 ## ⚙️ Configuración de Variables de Entorno
 
-El proyecto requiere la configuración del archivo `.env.local` en la raíz del proyecto con las siguientes variables:
+El proyecto requiere la configuración del archivo `.env.local` en la raíz del proyecto (tanto en local como en el servidor Ubuntu) con las siguientes variables:
 
 ```env
 # Supabase (Base de datos y autenticación)
@@ -69,20 +69,30 @@ EMAIL_FROM="Gaitas Anauco" <info@gaitasanauco.com>
 
 ## 📦 Despliegue en Servidor Ubuntu (Oracle Cloud)
 
-1. **Actualizar y compilar en el servidor (`web-gaitas`):**
+1. **Descargar código en la carpeta `web-gaitas`:**
    ```bash
    cd web-gaitas
    git pull origin main
+   ```
+
+2. **Crear o actualizar `.env` y `.env.local` en el servidor:**
+   ```bash
+   nano .env.local
+   ```
+   *(Asegúrate de pegar todas las variables de Supabase y SMTP del paso de configuración).*
+
+3. **Instalar dependencias y compilar:**
+   ```bash
    npm install
    npm run build
    ```
 
-2. **Gestión del servicio con PM2:**
+4. **Gestión del servicio con PM2:**
    ```bash
    pm2 restart web-gaitas || pm2 start npm --name "web-gaitas" -- start
    ```
 
-3. **Proxy inverso Nginx:**
+5. **Proxy inverso Nginx:**
    Asegúrate de que Nginx redirija el tráfico del puerto 80/443 a `http://localhost:3000` y mantén actualizado el certificado SSL con Certbot:
    ```bash
    sudo certbot --nginx -d gaitasanauco.com -d www.gaitasanauco.com
