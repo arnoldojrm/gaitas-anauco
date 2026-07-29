@@ -115,7 +115,7 @@ export function NavigationSidebar() {
                     <div className="w-9 h-9 rounded-lg bg-gaitas-cyan/10 flex items-center justify-center border border-gaitas-cyan/20 text-gaitas-cyan group-hover:scale-110 transition-transform">
                       <FileText className="w-5 h-5" />
                     </div>
-                    <span>Formulario de Registro</span>
+                    <span>Únete a la familia</span>
                   </a>
                 </div>
               </div>

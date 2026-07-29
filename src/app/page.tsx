@@ -21,16 +21,26 @@ export default function Home() {
         />
         {/* Este degradado funde la imagen con el color azul oscuro exacto del fondo de la web */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-[#0A0A2A]/60 to-[#0A0A2A]" />
+
+        {/* Botón discreto Ver Próximos Conciertos */}
+        <div className="absolute top-6 right-20 sm:top-7 sm:right-24 z-20">
+          <a
+            href="#eventos"
+            className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm text-white glow-orange bg-gradient-to-r from-gaitas-orange to-gaitas-red transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm"
+          >
+            Ver Próximos Conciertos
+          </a>
+        </div>
       </div>
 
       {/* Hero Section */}
-      <section className="w-full flex flex-col items-center justify-center pt-0 pb-12 px-4 text-center relative overflow-hidden z-10 -mt-20 sm:-mt-32">
+      <section className="w-full flex flex-col items-center justify-center pt-0 pb-6 px-4 text-center relative overflow-hidden z-10 -mt-36 sm:-mt-52">
         {/* Decorative background glows */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gaitas-orange/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gaitas-cyan/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <div className="relative w-72 h-72 sm:w-96 sm:h-96 mb-8 drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 mb-4 drop-shadow-2xl hover:scale-105 transition-transform duration-500">
             <Image
               src="/logo.png"
               alt="Gaitas Anauco Logo"
@@ -40,23 +50,17 @@ export default function Home() {
             />
           </div>
           
-          <h1 className="text-4xl sm:text-6xl font-extrabold mb-6 tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold mb-4 tracking-tight">
             Siente el calor de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-gaitas-yellow via-gaitas-orange to-gaitas-red">Gaita Zuliana</span> en Barcelona
           </h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mb-6 leading-relaxed">
             Somos Gaitas Anauco, un grupo apasionado por mantener vivas nuestras raíces venezolanas, llenando de alegría y calidez caribeña cada rincón de España.
           </p>
-          
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="#eventos" className="px-8 py-4 rounded-full font-bold text-lg text-white glow-orange bg-gradient-to-r from-gaitas-orange to-gaitas-red transition-all duration-300 hover:scale-105 shadow-xl">
-              Ver Próximos Conciertos
-            </a>
-            <a href="#registro" className="px-8 py-4 rounded-full font-bold text-lg text-gray-200 border border-white/20 bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-              Únete a la Familia
-            </a>
-          </div>
         </div>
       </section>
+
+      {/* Nuestros Momentos (Carrusel de fotos) */}
+      <PhotoCarousel />
 
       {/* Próximos Conciertos / Eventos */}
       <section id="eventos" className="w-full max-w-6xl mx-auto px-4 py-16 relative z-10 scroll-mt-24">
@@ -169,8 +173,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <PhotoCarousel />
 
       {/* Registro */}
       <section id="registro" className="w-full max-w-md mx-auto px-4 py-20 scroll-mt-24">
