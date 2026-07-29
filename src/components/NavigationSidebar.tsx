@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, User, Calendar, FileText, Heart, Camera } from "lucide-react";
+import { Menu, X, Phone, Mail, User, Calendar, FileText, Heart, Camera, Music } from "lucide-react";
 
 export function NavigationSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,6 +72,17 @@ export function NavigationSidebar() {
                       <Calendar className="w-5 h-5" />
                     </div>
                     <span>Próximos Conciertos</span>
+                  </a>
+
+                  <a
+                    href="#musica"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-gaitas-orange/50 hover:bg-white/10 transition-all text-white font-medium group"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-gaitas-orange/10 flex items-center justify-center border border-gaitas-orange/20 text-gaitas-orange group-hover:scale-110 transition-transform">
+                      <Music className="w-5 h-5" />
+                    </div>
+                    <span>Música & Vídeos</span>
                   </a>
 
                   <a

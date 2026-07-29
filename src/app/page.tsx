@@ -2,6 +2,7 @@ import Image from "next/image";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { NavigationSidebar } from "@/components/NavigationSidebar";
+import { MusicSection } from "@/components/AudioPlayer/MusicSection";
 import { Music, MapPin, Users, CalendarHeart, Calendar, Clock, Info } from "lucide-react";
 
 export default function Home() {
@@ -127,6 +128,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Música y Vídeos */}
+      <MusicSection />
 
       {/* Sobre Nosotros */}
       <section id="nosotros" className="w-full max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
