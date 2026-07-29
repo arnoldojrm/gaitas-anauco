@@ -38,17 +38,18 @@ export async function updateSession(request: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    // Si intentamos ir a /admin/dashboard y no hay usuario, redirigir a /admin/login
+    // Si intentamos ir a cualquier ruta bajo /admin (salvo /admin/login) y no hay usuario, redirigir a /admin/login
     if (
       !user &&
-      request.nextUrl.pathname.startsWith("/admin/dashboard")
+      request.nextUrl.pathname.startsWith("/admin") &&
+      !request.nextUrl.pathname.startsWith("/admin/login")
     ) {
       const url = request.nextUrl.clone();
       url.pathname = "/admin/login";
       return NextResponse.redirect(url);
     }
 
-    // Si hay usuario y estamos en /admin/login, redirigir a /admin/dashboard
+    // Si hay usuario autenticado y estamos en /admin/login, redirigir al dashboard
     if (
       user &&
       request.nextUrl.pathname.startsWith("/admin/login")
@@ -58,7 +59,7 @@ export async function updateSession(request: NextRequest) {
       return NextResponse.redirect(url);
     }
   } catch {
-    // Ignore auth errors in placeholder mode
+    // Manejo silencioso de errores de sesión
   }
 
   return supabaseResponse;

@@ -93,10 +93,14 @@ export async function sendRegistrationNotification({
       </div>
     `;
 
+    // Sanitización preventiva contra Header Injection en el asunto del correo
+    const safeNombre = nombre.replace(/[\r\n]/g, " ").trim();
+    const safeApellidos = apellidos.replace(/[\r\n]/g, " ").trim();
+
     await transporter.sendMail({
       from: emailFrom,
       to: emailTo,
-      subject: `[Nuevo Registro] ${nombre} ${apellidos}`,
+      subject: `[Nuevo Registro] ${safeNombre} ${safeApellidos}`,
       html: htmlContent,
     });
 

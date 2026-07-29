@@ -17,6 +17,7 @@ const formSchema = z.object({
   politica: z.boolean().refine((val) => val === true, {
     message: "Debes aceptar la política de privacidad",
   }),
+  website: z.string().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -40,6 +41,7 @@ export function RegistrationForm() {
       email: "",
       telefono: "",
       comentario: "",
+      website: "",
     },
   });
 
@@ -103,6 +105,18 @@ export function RegistrationForm() {
 
   return (
     <form suppressHydrationWarning onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 bg-white/5 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl">
+      {/* Campo Honeypot Oculto (Anti-Spam Bot) */}
+      <div className="absolute opacity-0 -z-10 w-0 h-0 pointer-events-none" aria-hidden="true">
+        <input
+          {...register("website")}
+          type="text"
+          id="website"
+          tabIndex={-1}
+          autoComplete="off"
+          placeholder="Dejar este campo vacío"
+        />
+      </div>
+
       <div suppressHydrationWarning>
         <label htmlFor="nombre" className="block text-sm font-medium text-gray-300 mb-1">Nombre *</label>
         <input

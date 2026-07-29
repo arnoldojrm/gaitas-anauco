@@ -3,6 +3,7 @@ import { RegistrationForm } from "@/components/RegistrationForm";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { NavigationSidebar } from "@/components/NavigationSidebar";
 import { MusicSection } from "@/components/AudioPlayer/MusicSection";
+import { GallerySection } from "@/components/Gallery/GallerySection";
 import { Music, MapPin, Users, CalendarHeart, Calendar, Clock, Info } from "lucide-react";
 
 export default function Home() {
@@ -173,6 +174,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Galería de Actividades */}
+      <GallerySection />
 
       {/* Registro */}
       <section id="registro" className="w-full max-w-md mx-auto px-4 py-20 scroll-mt-24">
