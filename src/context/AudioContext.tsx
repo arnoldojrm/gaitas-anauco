@@ -57,7 +57,12 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     if (typeof window === "undefined") return;
 
     const musicSection = document.getElementById("musica-section");
-    if (!musicSection) return;
+    if (!musicSection) {
+      if (isPlaying || userInteractedRef.current) {
+        setIsMiniPlayerActive(true);
+      }
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
