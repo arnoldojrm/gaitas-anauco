@@ -85,20 +85,20 @@ export default function Home() {
                 <span className="text-xs uppercase font-bold tracking-widest text-gaitas-cyan bg-gaitas-cyan/10 px-3 py-1.5 rounded-full border border-gaitas-cyan/30">
                   Barcelona 2026
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">Bajada de furros 2026</h3>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">Celebrando la Feria de la Chinita</h3>
               </div>
               <CalendarHeart className="w-10 h-10 text-gaitas-orange group-hover:scale-110 transition-transform shrink-0" />
             </div>
 
             <div className="flex items-center gap-3 text-gray-300 mb-6 text-base sm:text-lg font-medium">
               <Clock className="w-5 h-5 text-gaitas-yellow shrink-0" />
-              <span>Domingo, 15 de diciembre de 2026</span>
+              <span>Domingo, 15 de noviembre de 2026</span>
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
-              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-gaitas-yellow bg-gaitas-yellow/10 border border-gaitas-yellow/30 px-4 py-2 rounded-full font-medium">
-                <Info className="w-4 h-4 shrink-0" /> Entradas disponibles próximamente
-              </div>
+              <a href="https://entradium.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs sm:text-sm text-gaitas-yellow bg-gaitas-yellow/10 border border-gaitas-yellow/30 px-4 py-2 rounded-full font-medium hover:bg-gaitas-yellow/20 transition-colors">
+                <Info className="w-4 h-4 shrink-0" /> Entradas en entradium.com
+              </a>
               <a href="#registro" className="text-sm font-bold text-gaitas-orange hover:text-white transition-colors underline">
                 Avisarme
               </a>

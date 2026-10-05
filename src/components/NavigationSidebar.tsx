@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, User, Calendar, FileText, Heart, Camera, Music } from "lucide-react";
+import { Menu, X, Phone, Mail, User, Calendar, FileText, Heart, Camera, Music, Star } from "lucide-react";
 
 export function NavigationSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +64,7 @@ export function NavigationSidebar() {
                   <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-2">Navegación</p>
                   
                   <a
-                    href="#eventos"
+                    href="/#eventos"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-gaitas-orange/50 hover:bg-white/10 transition-all text-white font-medium group"
                   >
@@ -75,7 +75,7 @@ export function NavigationSidebar() {
                   </a>
 
                   <a
-                    href="#musica"
+                    href="/#musica"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-gaitas-orange/50 hover:bg-white/10 transition-all text-white font-medium group"
                   >
@@ -86,7 +86,7 @@ export function NavigationSidebar() {
                   </a>
 
                   <a
-                    href="#nosotros"
+                    href="/#nosotros"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-gaitas-yellow/50 hover:bg-white/10 transition-all text-white font-medium group"
                   >
@@ -97,7 +97,7 @@ export function NavigationSidebar() {
                   </a>
 
                   <a
-                    href="#momentos"
+                    href="/#momentos"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-gaitas-red/50 hover:bg-white/10 transition-all text-white font-medium group"
                   >
@@ -108,7 +108,7 @@ export function NavigationSidebar() {
                   </a>
 
                   <a
-                    href="#galeria"
+                    href="/#galeria"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-gaitas-yellow/50 hover:bg-white/10 transition-all text-white font-medium group"
                   >
@@ -119,7 +119,7 @@ export function NavigationSidebar() {
                   </a>
 
                   <a
-                    href="#registro"
+                    href="/#registro"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-gaitas-cyan/50 hover:bg-white/10 transition-all text-white font-medium group"
                   >
@@ -127,6 +127,17 @@ export function NavigationSidebar() {
                       <FileText className="w-5 h-5" />
                     </div>
                     <span>Únete a la familia</span>
+                  </a>
+                  
+                  <a
+                    href="/patrocinio"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-4 p-3 rounded-xl bg-gradient-to-r from-gaitas-orange/20 to-transparent border border-gaitas-orange/40 hover:border-gaitas-orange hover:bg-gaitas-orange/10 transition-all text-white font-bold group"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-gaitas-orange flex items-center justify-center text-[#0A0A2A] group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(255,127,80,0.5)]">
+                      <Star className="w-5 h-5 fill-current" />
+                    </div>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gaitas-yellow to-gaitas-orange">Patrocina nuestros eventos</span>
                   </a>
                 </div>
               </div>
