@@ -4,7 +4,7 @@ import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { NavigationSidebar } from "@/components/NavigationSidebar";
 import { MusicSection } from "@/components/AudioPlayer/MusicSection";
 import { GallerySection } from "@/components/Gallery/GallerySection";
-import { Music, MapPin, Users, CalendarHeart, Calendar, Clock, Info } from "lucide-react";
+import { Music, MapPin, Users, CalendarHeart, Calendar, Clock, Info, Ticket } from "lucide-react";
 
 export default function Home() {
   return (
@@ -77,57 +77,109 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-8">
           {/* Concierto 1 */}
-          <div className="relative group bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-8 rounded-3xl backdrop-blur-md hover:border-gaitas-orange/50 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,127,80,0.25)]">
-            <div className="flex justify-between items-start mb-6">
-              <div>
-                <span className="text-xs uppercase font-bold tracking-widest text-gaitas-cyan bg-gaitas-cyan/10 px-3 py-1.5 rounded-full border border-gaitas-cyan/30">
-                  Barcelona 2026
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">Celebrando la Feria de la Chinita</h3>
+          <div className="relative group bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-6 sm:p-8 rounded-3xl backdrop-blur-md hover:border-gaitas-orange/50 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,127,80,0.25)] flex flex-col md:flex-row gap-8">
+            <div className="flex-1">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <span className="text-xs uppercase font-bold tracking-widest text-gaitas-cyan bg-gaitas-cyan/10 px-3 py-1.5 rounded-full border border-gaitas-cyan/30">
+                    Barcelona 2026
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">Celebrando la Feria de la Chinita</h3>
+                </div>
+                <CalendarHeart className="w-10 h-10 text-gaitas-orange group-hover:scale-110 transition-transform shrink-0 md:hidden" />
               </div>
-              <CalendarHeart className="w-10 h-10 text-gaitas-orange group-hover:scale-110 transition-transform shrink-0" />
+
+              <div className="space-y-4 mb-6">
+                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                  ¡Siente el calor de la gaita zuliana y acompáñanos a honrar a nuestra patrona, la Virgen de Chiquinquirá! Gaitas Anauco te invita a un viaje de vuelta a casa, una tarde donde la devoción y la alegría inconfundible del sabor caribeño se unen en un solo sentir.
+                </p>
+                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                  Prepárate para vibrar con nuestras raíces venezolanas al ritmo del cuatro, el furruco, la tambora y la charrasca. Será un encuentro inolvidable para compartir nuestra esencia, cantar a todo pulmón y sentirnos más cerca de nuestra tierra. ¡Ven y apoya nuestras tradiciones y cultura!
+                </p>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3 text-gray-300 mb-6 text-base sm:text-lg font-medium">
-              <Clock className="w-5 h-5 text-gaitas-yellow shrink-0" />
-              <span>Domingo, 15 de noviembre de 2026</span>
-            </div>
+            <div className="md:w-80 shrink-0 bg-black/20 p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3 text-gray-300">
+                  <Clock className="w-5 h-5 text-gaitas-yellow shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-white">Domingo, 15 de noviembre</div>
+                    <div className="text-sm">A partir de las 17:00 h</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 text-gray-300">
+                  <MapPin className="w-5 h-5 text-gaitas-cyan shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-white">Sala La Nau</div>
+                    <div className="text-sm">C/Àlaba 30, 08005, Barcelona</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 text-gray-300">
+                  <Ticket className="w-5 h-5 text-gaitas-orange shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-white">Entradas: 20€</div>
+                  </div>
+                </div>
+              </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
-              <a href="https://entradium.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs sm:text-sm text-gaitas-yellow bg-gaitas-yellow/10 border border-gaitas-yellow/30 px-4 py-2 rounded-full font-medium hover:bg-gaitas-yellow/20 transition-colors">
-                <Info className="w-4 h-4 shrink-0" /> Entradas en entradium.com
-              </a>
-              <a href="#registro" className="text-sm font-bold text-gaitas-orange hover:text-white transition-colors underline">
-                Avisarme
+              <a href="https://entradium.com" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 text-sm text-[#0A0A2A] bg-gaitas-yellow border border-gaitas-yellow hover:bg-white hover:border-white hover:text-[#0A0A2A] px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                <Ticket className="w-4 h-4 shrink-0" /> Comprar Entradas
               </a>
             </div>
           </div>
 
           {/* Concierto 2 */}
-          <div className="relative group bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-8 rounded-3xl backdrop-blur-md hover:border-gaitas-orange/50 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,127,80,0.25)]">
-            <div className="flex justify-between items-start mb-6">
-              <div>
-                <span className="text-xs uppercase font-bold tracking-widest text-gaitas-cyan bg-gaitas-cyan/10 px-3 py-1.5 rounded-full border border-gaitas-cyan/30">
-                  Barcelona 2026
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">Gaitazo 2026</h3>
+          <div className="relative group bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-6 sm:p-8 rounded-3xl backdrop-blur-md hover:border-gaitas-orange/50 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,127,80,0.25)] flex flex-col md:flex-row gap-8">
+            <div className="flex-1">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <span className="text-xs uppercase font-bold tracking-widest text-gaitas-cyan bg-gaitas-cyan/10 px-3 py-1.5 rounded-full border border-gaitas-cyan/30">
+                    Barcelona 2026
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4">Gran Gaitazo 2026</h3>
+                </div>
+                <CalendarHeart className="w-10 h-10 text-gaitas-red group-hover:scale-110 transition-transform shrink-0 md:hidden" />
               </div>
-              <CalendarHeart className="w-10 h-10 text-gaitas-red group-hover:scale-110 transition-transform shrink-0" />
+
+              <div className="space-y-4 mb-6">
+                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                  ¡Despide el año con el auténtico sabor zuliano y toda la energía vibrante de Gaitas Anauco! Prepárate para una noche espectacular llena de alegría y calidez caribeña, donde los tambores, la charrasca, el furruco y el cuatro marcarán el ritmo de nuestra parranda más querida.
+                </p>
+                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                  Más que un concierto, esta noche será el gran reencuentro de nuestra familia extendida en Europa. Ven a cantar tus temas favoritos, a bailar sin parar y a revivir la pasión de nuestras raíces venezolanas en una fiesta que te hará sentir de viaje de vuelta a casa. ¡No dejes que te lo cuenten!
+                </p>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3 text-gray-300 mb-6 text-base sm:text-lg font-medium">
-              <Clock className="w-5 h-5 text-gaitas-yellow shrink-0" />
-              <span>Viernes, 4 de diciembre de 2026</span>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
-              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-gaitas-yellow bg-gaitas-yellow/10 border border-gaitas-yellow/30 px-4 py-2 rounded-full font-medium">
-                <Info className="w-4 h-4 shrink-0" /> Entradas disponibles próximamente
+            <div className="md:w-80 shrink-0 bg-black/20 p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3 text-gray-300">
+                  <Clock className="w-5 h-5 text-gaitas-yellow shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-white">Viernes, 4 de diciembre</div>
+                    <div className="text-sm">21:00 h</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 text-gray-300">
+                  <MapPin className="w-5 h-5 text-gaitas-cyan shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-white">Sala La Nau</div>
+                    <div className="text-sm">Barcelona</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 text-gray-300">
+                  <Ticket className="w-5 h-5 text-gaitas-orange shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-white">Entrada General: 25€</div>
+                  </div>
+                </div>
               </div>
-              <a href="#registro" className="text-sm font-bold text-gaitas-orange hover:text-white transition-colors underline">
-                Avisarme
+
+              <a href="#registro" className="w-full inline-flex items-center justify-center gap-2 text-sm text-white bg-white/10 border border-white/20 hover:bg-white/20 px-6 py-3 rounded-xl font-bold transition-colors">
+                <Info className="w-4 h-4 shrink-0" /> Entradas próximamente
               </a>
             </div>
           </div>
