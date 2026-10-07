@@ -49,6 +49,14 @@ export default function PatrocinioPage() {
             <p className="text-sm text-gray-400 mt-4">
               Celebra con nosotros la tradicional bajada y rinde homenaje a la Chinita al mejor estilo gaitero.
             </p>
+            <div className="mt-6 relative w-full h-[400px] sm:h-[500px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
+              <Image 
+                src="/media/cartel-chinita-2026.png" 
+                alt="Afiche Oficial Feria de la Chinita" 
+                fill 
+                className="object-contain p-2" 
+              />
+            </div>
           </div>
 
           {/* Evento 2 */}

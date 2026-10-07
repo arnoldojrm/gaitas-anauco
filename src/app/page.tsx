@@ -120,7 +120,7 @@ export default function Home() {
                 <div className="flex items-start gap-3 text-gray-300">
                   <Ticket className="w-5 h-5 text-gaitas-orange shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-semibold text-white">Entradas: 20€</div>
+                    <div className="font-semibold text-white">Entradas: 22€</div>
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export default function Home() {
                 <div className="flex items-start gap-3 text-gray-300">
                   <Ticket className="w-5 h-5 text-gaitas-orange shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-semibold text-white">Entrada General: 25€</div>
+                    <div className="font-semibold text-white">Entrada General: 26€</div>
                   </div>
                 </div>
               </div>
