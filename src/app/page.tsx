@@ -96,7 +96,7 @@ export default function Home() {
                   ¡Siente el calor de la gaita zuliana y acompáñanos a honrar a nuestra patrona, la Virgen de Chiquinquirá! Gaitas Anauco te invita a un viaje de vuelta a casa, una tarde donde la devoción y la alegría inconfundible del sabor caribeño se unen en un solo sentir.
                 </p>
                 <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
-                  Prepárate para vibrar con nuestras raíces venezolanas al ritmo del cuatro, el furruco, la tambora y la charrasca. Será un encuentro inolvidable para compartir nuestra esencia, cantar a todo pulmón y sentirnos más cerca de nuestra tierra. ¡Ven y apoya nuestras tradiciones y cultura!
+                  Prepárate para vibrar con nuestras raíces venezolanas al ritmo del cuatro, la tambora y la charrasca. Será un encuentro inolvidable para compartir nuestra esencia, cantar a todo pulmón y sentirnos más cerca de nuestra tierra. ¡Ven y apoya nuestras tradiciones y cultura!
                 </p>
                 <div className="mt-6 relative w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
                   <Image 
@@ -154,7 +154,7 @@ export default function Home() {
 
               <div className="space-y-4 mb-6">
                 <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
-                  ¡Despide el año con el auténtico sabor zuliano y toda la energía vibrante de Gaitas Anauco! Prepárate para una noche espectacular llena de alegría y calidez caribeña, donde los tambores, la charrasca, el furruco y el cuatro marcarán el ritmo de nuestra parranda más querida.
+                  ¡Despide el año con el auténtico sabor zuliano y toda la energía vibrante de Gaitas Anauco! Prepárate para una noche espectacular llena de alegría y calidez caribeña, donde los tambores, la charrasca y el cuatro marcarán el ritmo de nuestra parranda más querida.
                 </p>
                 <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                   Más que un concierto, esta noche será el gran reencuentro de nuestra familia extendida en Europa. Ven a cantar tus temas favoritos, a bailar sin parar y a revivir la pasión de nuestras raíces venezolanas en una fiesta que te hará sentir de viaje de vuelta a casa. ¡No dejes que te lo cuenten!
@@ -207,7 +207,7 @@ export default function Home() {
               Nacidos de la nostalgia y el amor por nuestra tierra, Gaitas Anauco surgió en <strong>Barcelona, España</strong> como un punto de encuentro para la comunidad venezolana y amantes de la cultura caribeña en Europa. No solo tocamos música; compartimos nuestra esencia, nuestras tradiciones y la alegría inconfundible del sabor zuliano.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Desde <strong>Barcelona, España</strong>, cada presentación es un viaje de vuelta a casa, una celebración donde los tambores, la charrasca, el furruco y el cuatro se unen para hacer vibrar los corazones de todos los que nos escuchan, sin importar de dónde vengan.
+              Desde <strong>Barcelona, España</strong>, cada presentación es un viaje de vuelta a casa, una celebración donde los tambores, la charrasca y el cuatro se unen para hacer vibrar los corazones de todos los que nos escuchan, sin importar de dónde vengan.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
