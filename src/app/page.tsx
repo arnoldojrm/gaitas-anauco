@@ -98,6 +98,14 @@ export default function Home() {
                 <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                   Prepárate para vibrar con nuestras raíces venezolanas al ritmo del cuatro, el furruco, la tambora y la charrasca. Será un encuentro inolvidable para compartir nuestra esencia, cantar a todo pulmón y sentirnos más cerca de nuestra tierra. ¡Ven y apoya nuestras tradiciones y cultura!
                 </p>
+                <div className="mt-6 relative w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
+                  <Image 
+                    src="/media/cartel-chinita-2026.png" 
+                    alt="Afiche Oficial Feria de la Chinita" 
+                    fill 
+                    className="object-contain p-2" 
+                  />
+                </div>
               </div>
             </div>
 
@@ -125,7 +133,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <a href="https://entradium.com" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 text-sm text-[#0A0A2A] bg-gaitas-yellow border border-gaitas-yellow hover:bg-white hover:border-white hover:text-[#0A0A2A] px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+              <a href="https://entradium.com/events/celebrando-la-feria-de-la-chinita" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 text-sm text-[#0A0A2A] bg-gaitas-yellow border border-gaitas-yellow hover:bg-white hover:border-white hover:text-[#0A0A2A] px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
                 <Ticket className="w-4 h-4 shrink-0" /> Comprar Entradas
               </a>
             </div>
