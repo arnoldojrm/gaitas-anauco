@@ -46,8 +46,8 @@ export default function PatrocinioPage() {
               <MapPin className="w-4 h-4 text-gaitas-cyan" />
               <span>Sala La Nau, Barcelona</span>
             </div>
-            <p className="text-sm text-gray-400 mt-4">
-              Celebra con nosotros la tradicional bajada y rinde homenaje a la Chinita al mejor estilo gaitero.
+            <p className="text-sm text-gray-400 mt-4 leading-relaxed">
+              ¡Siente el calor de la gaita zuliana y acompáñanos a honrar a nuestra patrona, la Virgen de Chiquinquirá! Gaitas Anauco te invita a un viaje de vuelta a casa, una tarde donde la devoción y la alegría inconfundible del sabor caribeño se unen en un solo sentir. Prepárate para vibrar con nuestras raíces venezolanas al ritmo del cuatro, la tambora y la charrasca. Será un encuentro inolvidable para compartir nuestra esencia, cantar a todo pulmón y sentirnos más cerca de nuestra tierra. ¡Ven y apoya nuestras tradiciones y cultura!
             </p>
             <div className="mt-6 relative w-full h-[400px] sm:h-[500px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
               <Image 
